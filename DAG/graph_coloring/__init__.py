@@ -86,8 +86,6 @@ def read_file(filePath):
         .vapply(lambda v: v.split(" "))
         .vapply(lambda v: dict(n1=int(v[0]), n2=int(v[1])))
     )
-    # vapply(lambda v: [int(v[0]), int(v[1])])
-    num_nodes, num_pairs = [int(a) for a in contents[0].split(" ")]
     return dict(pairs=pairs)
 
 
