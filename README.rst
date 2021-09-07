@@ -27,7 +27,7 @@ There are several things that are needed when submitting a new solver.
 5. a `test_cases` function that returns a list of dictionaries.
 
 In its most minimalistic form: an app constitutes one dag file that contains all of this.
-In the following lines we will explain each of these concepts while using the graph-coloring example dag.
+In the following lines we will explain each of these concepts while using the graph-coloring example dag. This example can be found in the `DAG/graph_coloring` directory.
 
 The solver
 ------------
@@ -112,9 +112,12 @@ In order to upload it, you need to have an `instance` variable available in your
 
 In the case of the graph-coloring, these variables are imported from the package::
 
-    instance, solution = utils.get_schemas_from_file(os.path.dirname(__file__), name)
+    with open(os.path.join(os.path.dirname(__file__), "input.json"), "r") as f:
+        instance = json.load(f)
+    with open(os.path.join(os.path.dirname(__file__), "output.json"), "r") as f:
+        solution = json.load(f)
 
-This just imports the `graph_coloring_input.json` and `graph_coloring_output.json` files as python dictionaries. You can check either file to see how they are structured.
+This just imports the `input.json` and `output.json` files as python dictionaries. You can check either file to see how they are structured.
 
 Airflow functions and name
 -----------------------------
@@ -134,7 +137,7 @@ There are some basic functions and declarations that need to be created. The eas
 Unit tests
 ------------
 
-The `test_cases` function is used in the unittests to be sure the solver works as intended. In the graph-coloring example we take the examples from the the `data` directory::
+The `test_cases` function is used in the unittests to be sure the solver works as intended. In the graph-coloring example we read the examples from the the `data` directory and transform them to the correct format::
 
     def test_cases():
         file_dir = os.path.join(os.path.dirname(__file__), "..", "data")
