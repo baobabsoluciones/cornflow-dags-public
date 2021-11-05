@@ -18,13 +18,6 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install SSH key
-      uses: shimataro/ssh-key-action@v2
-      with:
-        key: ${{ secrets.BITBUCKET_CONN }}
-        name: id_rsa-bitbucket
-        known_hosts: ${{ secrets.BITBUCKET_HOST }}
-        config: ${{ secrets.BITBUCKET_CONFIG }}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
