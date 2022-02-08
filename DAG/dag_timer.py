@@ -23,6 +23,12 @@ class Solver(ExperimentCore):
         self.solution = Solution({})
         return dict(status=STATUS_OPTIMAL, status_sol=SOLUTION_STATUS_FEASIBLE)
 
+    def get_objective(self) -> float:
+        return 0
+
+    def check_solution(self, *args, **kwargs):
+        return dict(errors=dict())
+
 
 class Timer(ApplicationCore):
     name = "timer"
