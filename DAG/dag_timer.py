@@ -26,12 +26,13 @@ class Solver(ExperimentCore):
 
 class Timer(ApplicationCore):
     name = "timer"
-    schema = get_empty_schema(
-        dict(seconds=dict(type="number"), timeLimit=dict(type="number"))
-    )
     instance = Instance
     solution = Solution
     solvers = dict(default=Solver)
+    schema = get_empty_schema(
+        properties=dict(seconds=dict(type="number"), timeLimit=dict(type="number")),
+        solvers=list(solvers.keys()),
+    )
 
     def test_cases(self):
         return []
