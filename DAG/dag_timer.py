@@ -31,7 +31,7 @@ class Timer(ApplicationCore):
     )
     instance = Instance
     solution = Solution
-    solvers = [dict(default=Solver)]
+    solvers = dict(default=Solver)
 
     def test_cases(self):
         return []
