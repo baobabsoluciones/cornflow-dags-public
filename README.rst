@@ -1,7 +1,7 @@
 Cornflow-dags
 ===============
 
-**This repository has been archived. All the DAGs that where in this repository have been moved to the main `cornflow repository<https://github.com/baobabsoluciones/cornflow>`_. They are in the cornflow-dags folder.**
+**This repository has been archived.** All the DAGs that where in this repository have been moved to the main `cornflow repository <https://github.com/baobabsoluciones/cornflow>`_. They are in the cornflow-dags folder.
 
 Public DAGs for cornflow server
 
